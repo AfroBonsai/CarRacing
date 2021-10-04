@@ -5,19 +5,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- hoja de estilos propria -->
+    <title>Quarter Mile Drag</title>
     <link rel="stylesheet" href="css/style.css">
-    <!-- Funciones de javascript -->
 </head>
 
 <body>
+
+    <!-- SCREEN 1 - TITLE SCREEN -->
+
+    <section id="screen1">
+        <div class="container">
+            <div class="window">
+                <div class="title">Quarter Mile Drag</div>
+                <div onClick='screenChange("screen2")' class="pressStart">PRESS START</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCREEN 2 - CAR SELECT -->
+
+    <section id="screen2" style="display:none"></section>
     <div class="container">
-        <div class="title">Quarter Mile Drag</div>
-        <div class="screen">
-            <div class="start">PRESS START</div>
+        <div class="window">
+            <div class="title">Select your vehicle</div>
+            <div class="carList">
+                <div class="carSelect1"></div>
+                <div class="carSelect2"></div>
+                <div class="carSelect3"></div>
+                <div class="carSelect4"></div>
+            </div>
+            <div onClick='screenChange("screen1")' class="selectButton">Start Race</div>
+            <div class="carSelected">
+                <div class="carSelected1"></div>
+                <div class="carAtributes"></div>
+                <div class="carSelected2"></div>
+            </div>
         </div>
     </div>
+
+    <!-- SCREEN 3 - RACE -->
+
+    <section id="screen3" style="display:none"></section>
+
+    <!-- SCREEN 4 - VICTORY SCREEN -->
+
+    <section id="screen4" style="display:none"></section>
 
 
     <script src="js/main.js"></script>
