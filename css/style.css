@@ -79,7 +79,7 @@ body {
     justify-content: center;
 }
 
-.carSelect1, .carSelect2, .carSelect3, .carSelect4 {
+.carSelect {
     background-color: blue;
     height: 50%;
     width: 15%;
@@ -199,4 +199,10 @@ body {
 .carImg {
 max-width: 100%;
 height: auto;
+}
+
+
+.carSelectGray {
+    -webkit-filter: grayscale(100%); 
+    filter: grayscale(100%);
 }
