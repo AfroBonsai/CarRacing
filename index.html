@@ -31,15 +31,27 @@
             <div class="window">
                 <div class="title">Select your vehicle</div>
                 <div class="carList">
-                    <div class="carSelect1" onClick='selectCar("drag1")'>1</div>
-                    <div class="carSelect2" onClick='selectCar("drag2")'>2</div>
-                    <div class="carSelect3" onClick='selectCar("drag3")'>3</div>
-                    <div class="carSelect4" onClick='selectCar("drag4")'>4</div>
+                    <div class="carSelect1" onClick='selectCar("drag1")'>
+                        <img class="carImg" src="img/dragcar1.jpg">
+                    </div>
+                    <div class="carSelect2" onClick='selectCar("drag2")'>
+                        <img class="carImg" src="img/dragcar2.jpg">
+                    </div>
+                    <div class="carSelect3" onClick='selectCar("drag3")'>
+                        <img class="carImg" src="img/dragcar3.jpg">
+                    </div>
+                    <div class="carSelect4" onClick='selectCar("drag4")'>
+                        <img class="carImg" src="img/dragcar4.jpg">
+                    </div>
+
                 </div>
                 <div onClick='screenChange("screen3")' class="selectButton">Start Race</div>
                 <div class="carSelected">
                     <div class="carSelected1"></div>
-                    <div class="carAtributes"></div>
+                    <div class="carAtributes">
+                        <div class="carAtributesInner1"></div>
+                        <div class="carAtributesInner2"></div>
+                    </div>
                     <div class="carSelected2"></div>
                 </div>
             </div>
@@ -70,7 +82,7 @@
                     <div class="victoryImage"></div>
                     <div onClick='screenChange("screen1")' class="victoryButton">Restart</div>
                 </div>
-                
+
     </section>
 
 
