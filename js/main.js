@@ -24,11 +24,11 @@ const screenChange = (nextScreen) => {
 // -------------------- PLAYERS AND RACE -------------------- //
 
 //---función randomizar
-const functions = {
-    random = (min, max) => {
+
+const random = (min, max) => {
         Math.floor(Math.random() * (max - min) + min);
     }
-}
+
 
 //---constructor de los coches
 class dragCar {
@@ -44,8 +44,8 @@ class dragCar {
 
     //---alogoritmo para avanzar el coche
     race() {
-        let luck = functions.random(this.Intuition, 1.6);   //suerte, interacciona con el agarre
-        let reflex = functions.random(0.8, 1);              //reflejos, interacciona con la aceleración
+        let luck = random(this.Intuition, 1.6);   //suerte, interacciona con el agarre
+        let reflex = random(0.8, 1);              //reflejos, interacciona con la aceleración
         let advance = this.Speed + (reflex * this.Acceleration) + this.Grip * luck;
         this.Distance += advance;
     }
@@ -65,6 +65,9 @@ let allRacers = {
     "4": car4
 }
 
+// let player1 = [];
+// let player2 = [];
+
 let race = {
     p1: [],
     p2: [],
@@ -82,7 +85,9 @@ let race = {
         this.p1.push(allRacers[idRacer]);
 
 if (this.p1 <2) {
-    document.getElementById(idRacer).
+    document.getElementById(idRacer).className = "carSelectGray";
+    document.getElementById(idRacer).onclick = "";
+
 }
 
     }
@@ -92,56 +97,104 @@ if (this.p1 <2) {
 
 
 }
-let game = {
-    round: 0,
-    winner: "",
-    player1: "",
-    player2: "",
-    winPlayer1: "",
-    winPlayer2: "",
 
-    resetRace() {
-        this.round = 0;
-        this.player1 = "";
-        this.player2 = "";
-    },
+// const selectCar = (car) => {
+
+//     let carImg = "carImg" + car;
+//     console.log(carImg);
+//     let selectedCar = document.getElementById(car);
+
+//     const lockCar = () => {
+
+//         selectedCar.classList.add("carSelectGray");
+//         document.getElementById(carImg).style.display = 'none';
+//     }
+// }
+//     const unlockCar = () => {
+
+//         selectedCar.classList.remove("carSelectGray");
+//         document.getElementById(carImg).style.display = 'block';
+//     }
+
+//     if (player1 != "") {
+
+//         player2 = allRacers[car];
+//         console.log("Second player is: " + player2);
+//         lockCar();
+
+//         setTimeout(() => {
+
+//             unlockCar();
+
+//         }, 1000);
+
+//     } else {
+
+//         player1 = allRacers[1];
+//         console.log("First player is: " + player1);
+//         lockCar();
+
+//         setTimeout(() => {
+
+//             unlockCar();
+
+//         }, 10000);
+
+//     }
+
+// }
+
+
+// let game = {
+//     round: 0,
+//     winner: "",
+//     player1: "",
+//     player2: "",
+//     winPlayer1: "",
+//     winPlayer2: "",
+
+//     resetRace() {
+//         this.round = 0;
+//         this.player1 = "";
+//         this.player2 = "";
+//     },
 
 
 
 
-    clearRace() {
-        this.resetRace();
+//     clearRace() {
+//         this.resetRace();
 
-        race.cont_race++;
-        this.player1.Distance = 0;
-        this.player2.Distance = 0;
+//         race.cont_race++;
+//         this.player1.Distance = 0;
+//         this.player2.Distance = 0;
 
-        partida.init5();
-    }
-}
-
-
+//         partida.init5();
+//     }
+// }
 
 
 
 
 
 
-let juego = {
 
-    turno: 0,
-    player1: "",
-    player2: "",
-    ganador: "",
 
-    resetearLucha() {
+// let juego = {
 
-    },
+//     turno: 0,
+//     player1: "",
+//     player2: "",
+//     ganador: "",
 
-    turnoLucha() {
+//     resetearLucha() {
 
-    },
-}
+//     },
+
+//     turnoLucha() {
+
+//     },
+// }
 
 
 
