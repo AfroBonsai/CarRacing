@@ -1,3 +1,9 @@
+
+// Author: George Zamfir
+// Version 1.0
+
+
+
 // -------------------- SCREEN CHANGE -------------------- //
 
 const screenChange = (nextScreen) => {
@@ -15,39 +21,43 @@ const screenChange = (nextScreen) => {
 }
 
 
-// -------------------- CARS AND ATTRIBUTES -------------------- //
+// -------------------- PLAYERS AND RACE -------------------- //
 
-
-// Constructor y atributos de cada coche
-
-class dragCars {
-    constructor(name, speed, acceleration, grip) {
-        this.name = name;
-        this.speed = speed;
-        this.acceleration = acceleration;
-        this.grip = grip;
-        this.distance = 0;
-        this.roundsWon = 0;
+//---función randomizar
+const functions = {
+    random = (min, max) => {
+        Math.floor(Math.random() * (max - min) + min);
     }
-
 }
 
-let car1 = new dragCar("Benny", 180, 60, 10);
-let car2 = new dragCar("Donald", 130, 80, 40);
-let car3 = new dragCar("Mercury", 150, 70, 30);
-let car4 = new dragCar("Stag", 200, 30, 20);
+//---constructor de los coches
+class dragCar {
+    constructor(name, id, speed, acceleration, grip, intuition) {
+        this.Name = name;
+        this.Id = id;
+        this.Speed = speed;
+        this.Acceleration = acceleration;
+        this.Grip = grip;
+        this.Intuition = intuition;
+        this.Distance = 0;
+    }
 
-const FINISH = 5000;
+    //---alogoritmo para avanzar el coche
+    race() {
+        let luck = functions.random(this.Intuition, 1.6);   //suerte, interacciona con el agarre
+        let reflex = functions.random(0.8, 1);              //reflejos, interacciona con la aceleración
+        let advance = this.Speed + (reflex * this.Acceleration) + this.Grip * luck;
+        this.Distance += advance;
+    }
+}
 
-let player1 = "";
-let player2 = "";
+//---intstanciar coches
+let car1 = new dragCar("Benny", 180, 60, 10, 1);
+let car2 = new dragCar("Donald", 130, 80, 40, 1);
+let car3 = new dragCar("Mercury", 150, 70, 30, 1);
+let car4 = new dragCar("Stag", 200, 30, 20, 1);
 
-
-let winner = document.getElementById("winner");
-let champion = document.getElementById("champion");
-
-// -- TRADUCTOR -- //
-
+//---traductor
 let traductor = {
     "1": car1,
     "2": car2,
@@ -55,50 +65,167 @@ let traductor = {
     "4": car4
 }
 
-const selectCar = (car) => {
+let race = {
+    p1: [],
+    p2: [],
+    p1Win: 0,
+    p2Win: 0,
+    cont: 0,
+    cont_race: 0,
+
+    selectPlayer1(idRacer)
 
 
 
 
-    let btn = "drag" + car;
-    let cocheElegido = document.getElementById(car);
-    const bloqCoche = () => {
-
-        cocheElegido.classList.add("greyscale");
-        document.getElementById(btn).style.display = 'none';
-    }
-    const desbloqCoche = () => {
-
-        cocheElegido.classList.remove("greyscale");
-        document.getElementById(btn).style.display = 'block';
-    }
-
-    if (coche1 != "") {
-
-        coche2 = traductor[car];
-        console.log("el coche2 es", coche2);
-        bloqCoche();
-
-        setTimeout(() => {
-
-            capas("3");
-            desbloqCoche();
-            jugadores();
-
-        }, 1000);
-
-    } else {
-
-        coche1 = traductor[car];
-        console.log("el coche1 es", coche1);
-        bloqCoche();
-
-        setTimeout(() => {
-
-            desbloqCoche();
-
-        }, 10000);
-
-    }
 
 }
+let game = {
+    round: 0,
+    winner: "",
+    player1: "",
+    player2: "",
+    winPlayer1: "",
+    winPlayer2: "",
+
+    resetRace() {
+        this.round = 0;
+        this.player1 = "";
+        this.player2 = "";
+    },
+
+
+
+
+    clearRace() {
+        this.resetRace();
+
+        race.cont_race++;
+        this.player1.Distance = 0;
+        this.player2.Distance = 0;
+
+        partida.init5();
+    }
+}
+
+
+
+
+
+
+
+
+let juego = {
+
+    turno: 0,
+    player1: "",
+    player2: "",
+    ganador: "",
+
+    resetearLucha() {
+
+    },
+
+    turnoLucha() {
+
+    },
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const FINISH = 5000;
+
+// let player1 = "";
+// let player2 = "";
+
+
+// let winner = document.getElementById("winner");
+// let champion = document.getElementById("champion");
+
+// // -- TRADUCTOR -- //
+
+// let traductor = {
+//     "1": car1,
+//     "2": car2,
+//     "3": car3,
+//     "4": car4
+// }
+
+// const selectCar = (carImg) => {
+
+//     let carImg = "carImg" + carImg;
+//     let selectedCar = document.getElementById(car);
+
+//     const lockCar = () => {
+
+//         selectedCar.classList.add("greyscale");
+//         document.getElementById(carImg).style.display = 'none';
+//     }
+//     const unlockCar = () => {
+
+//         selectedCar.classList.remove("greyscale");
+//         document.getElementById(carImg).style.display = 'block';
+//     }
+
+//     if (player1 != "") {
+
+//         player2 = traductor[car];
+//         console.log("Second player is: " + player2);
+//         lockCar();
+
+//         setTimeout(() => {
+
+//             unlockCar();
+
+//         }, 1000);
+
+//     } else {
+
+//         player1 = traductor[1];
+//         console.log("First player is: " + player1);
+//         lockCar();
+
+//         setTimeout(() => {
+
+//             unlockCar();
+
+//         }, 10000);
+
+//     }
+
+// }
+
+
+
+// let random = (min, max) => {
+//        Math.floor(Math.random() * (max - min) + min);
+// }
