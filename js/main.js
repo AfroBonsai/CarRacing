@@ -58,7 +58,7 @@ let car3 = new dragCar("Mercury", 150, 70, 30, 1);
 let car4 = new dragCar("Stag", 200, 30, 20, 1);
 
 //---traductor
-let traductor = {
+let allRacers = {
     "1": car1,
     "2": car2,
     "3": car3,
@@ -70,10 +70,22 @@ let race = {
     p2: [],
     p1Win: 0,
     p2Win: 0,
-    cont: 0,
-    cont_race: 0,
+    p2Choices: [],
+    count: 0,
+    count_race: 0,
+    race_info: "",
+    arg1: "",
+    arg2: "",
 
-    selectPlayer1(idRacer)
+    selectPlayer1(idRacer) {
+
+        this.p1.push(allRacers[idRacer]);
+
+if (this.p1 <2) {
+    document.getElementById(idRacer).
+}
+
+    }
 
 
 
