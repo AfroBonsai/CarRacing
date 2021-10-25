@@ -67,8 +67,6 @@ let allRacers = {
 
 const FINISHLINE = 5000;
 
-// console.log(race.advance(allRacers("1")));
-
 /////////////////////////////////////
 
 // const selectCar = (car) => {
@@ -80,60 +78,82 @@ const FINISHLINE = 5000;
 
 
 let race = {
-    p1: [],
-    p2: [],
+    players: [],
 
     selectPlayer1(idRacer) {
-        this.p1.push(allRacers[idRacer]);
+        this.players.push(allRacers[idRacer]);
     },
 
     selectPlayer2(idRacer) {
-        this.p2.push(allRacers[idRacer]);
+        this.players.push(allRacers[idRacer]);
     }
 }
 
+// let asdf = [];
 
-race.selectPlayer1("3");
-race.selectPlayer2("4");
-
-
-
-
-
-if (race.p1.length = 1) {
-    // console.log("Select player 2");
+// const selectCar = (car) => {
+//     // document.getElementById("carImg" + car) =
     
-} else {
+//     asdf.push(allRacers[car]);
+// }
+
+// console.log(asdf);
+
+const selectCar = (car) => {
+    // document.getElementById("carImg" + car) =
     
-    // console.log("Select player 1");
-    
+    race.players.push(allRacers[car]);
 }
+
+console.log(race.players);
+// race.selectPlayer1("1");
+// race.selectPlayer2("2");
+
+
+
+
+// if (race.players.length = 1) {
+//     // console.log("Select player 2");
+
+// } else {
+
+//     // console.log("Select player 1");
+
+// }
+
+
 
 
 
 const result = () => {
-    race.p1[0].Name;
-    console.log(race.p1[0].Name);
-    race.p2[0].Name;
-    console.log(race.p2[0].Name);
+    race.players[0].Name;
+    console.log(race.players[0].Name);
+    race.players[1].Name;
+    console.log(race.players[1].Name);
 
-do {
-    car1.raceAlgorithm();
-    car2.raceAlgorithm();
-    car3.raceAlgorithm();
-    car4.raceAlgorithm();
-    
-        console.log("player 1: " + race.p1[0].Distance);
-        console.log("player 2: " + race.p2[0].Distance);
-}
-    
-    while (race.p1[0].Distance < FINISHLINE && race.p2[0].Distance < FINISHLINE) {
-        
+    do {
+        car1.raceAlgorithm();
+        car2.raceAlgorithm();
+        car3.raceAlgorithm();
+        car4.raceAlgorithm();
 
+        console.log("player 1: " + race.players[0].Distance);
+        console.log("player 2: " + race.players[1].Distance);
+    }
+
+    while (race.players[0].Distance < FINISHLINE && race.players[1].Distance < FINISHLINE)
+
+    if (race.players[0].Distance > race.players[1].Distance) {
+        console.log(race.players[0].Name + " is the winner!");
+    } else {
+        console.log(race.players[1].Name + " is the winner!");
     }
 }
 
-result ();
+const startRace = () => {
+    result();
+}
+
 
 
 
