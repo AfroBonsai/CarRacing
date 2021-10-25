@@ -26,9 +26,8 @@ const screenChange = (nextScreen) => {
 //---función randomizar
 
 const random = (min, max) => {
-    Math.floor(Math.random() * (max - min) + min);
+    return Math.random() * (max - min) + min;
 }
-
 
 //---constructor de los coches
 class dragCar {
@@ -43,26 +42,19 @@ class dragCar {
     }
 
     //---alogoritmo para avanzar el coche
-    // race() {
-    //     let luck = random(this.Intuition, 1.6);   //suerte, interacciona con el grip
-    //     let reflex = random(0.8, 1);              //reflejos, interacciona con la aceleración
-    //     let advance = this.Speed + (reflex * this.Acceleration) + this.Grip * luck;
-    //     this.Distance += advance;
-    // }
-    race() {
-        // let luck = random(this.Intuition, 1.6);   //suerte, interacciona con el grip
-        // let reflex = random(0.8, 1);              //reflejos, interacciona con la aceleración
-        let advance = this.Speed;
+    raceAlgorithm() {
+        let luck = random(this.Intuition, 3);   //suerte, interacciona con el grip
+        let reflex = random(0.5, 1);              //reflejos, interacciona con la aceleración
+        let advance = Math.floor(this.Speed + (reflex * this.Acceleration) + this.Grip * luck);
         this.Distance += advance;
     }
-
-    
 }
 
+
 //---intstanciar coches
-let car1 = new dragCar("Benny", 1, 180, 60, 10, 1);
-let car2 = new dragCar("Donald", 2, 130, 80, 40, 1);
-let car3 = new dragCar("Mercury", 3, 150, 70, 30, 1);
+let car1 = new dragCar("Benny", 1, 180, 60, 17, 1);
+let car2 = new dragCar("Donald", 2, 130, 80, 35, 1);
+let car3 = new dragCar("Mercury", 3, 150, 70, 29, 1);
 let car4 = new dragCar("Stag", 4, 200, 30, 20, 1);
 
 //---traductor
@@ -87,37 +79,22 @@ const FINISHLINE = 5000;
 // }
 
 
-//////////////////
-
-// let todos = [];
-
-// todos = [allRacers[1], allRacers[2], allRacers[3], allRacers[4]];
-
-// console.log(todos);
-
-
 let race = {
     p1: [],
     p2: [],
 
-
     selectPlayer1(idRacer) {
         this.p1.push(allRacers[idRacer]);
-
     },
 
     selectPlayer2(idRacer) {
         this.p2.push(allRacers[idRacer]);
-
     }
-
 }
 
 
-
-
-race.selectPlayer1("1");
-race.selectPlayer2("2");
+race.selectPlayer1("3");
+race.selectPlayer2("4");
 
 
 
@@ -141,9 +118,13 @@ const result = () => {
     console.log(race.p2[0].Name);
 
 do {
-    car1.race();
-        console.log(race.p1[0].Distance);
-        console.log(race.p2[0].Distance);
+    car1.raceAlgorithm();
+    car2.raceAlgorithm();
+    car3.raceAlgorithm();
+    car4.raceAlgorithm();
+    
+        console.log("player 1: " + race.p1[0].Distance);
+        console.log("player 2: " + race.p2[0].Distance);
 }
     
     while (race.p1[0].Distance < FINISHLINE && race.p2[0].Distance < FINISHLINE) {
