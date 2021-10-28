@@ -89,41 +89,56 @@ let race = {
     }
 }
 
-// let asdf = [];
-
-// const selectCar = (car) => {
-//     // document.getElementById("carImg" + car) =
-    
-//     asdf.push(allRacers[car]);
-// }
-
-// console.log(asdf);
-
-const selectCar = (car) => {
-    // document.getElementById("carImg" + car) =
-    
-    race.players.push(allRacers[car]);
-}
+let playerFilter = [];
 
 console.log(race.players);
-// race.selectPlayer1("1");
-// race.selectPlayer2("2");
+console.log(race.players.length);
+console.log("--------------------------");
 
 
+const selectCar = (car) => {
+    if (race.players.length != 0 && race.players.length <= 2) {
+        playerFilter = (filtro) => {
+            return filtro != allRacers[car];
+        }
+        
 
+        if (selectCar != allRacers[car]) {
 
-// if (race.players.length = 1) {
-//     // console.log("Select player 2");
+            race.players = race.players.filter(playerFilter);
 
-// } else {
+            console.log("START func if filter");
+            console.log(race.players.length);
+            console.log(race.players);
+            console.log("END func if filter");
+        }
+        else {
+            
+            race.players.push(allRacers[car]);
 
-//     // console.log("Select player 1");
+            console.log("START func else filter");
+            console.log(race.players.length);
+            console.log(race.players);
+            console.log("END func else filter");
+        }
+    }
+    else if (race.players.length == 0) {
+        race.players.push(allRacers[car]);
 
-// }
+        console.log("START func else if");
+        console.log(race.players.length);
+        console.log(race.players);
+        console.log("END func else if");
+    }
+    else {
+        console.log("ready to start race")
 
-
-
-
+        console.log("START func else");
+        console.log(race.players.length);
+        console.log(race.players);
+        console.log("END func else");
+    }
+}
 
 const result = () => {
     race.players[0].Name;
@@ -156,58 +171,4 @@ const startRace = () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let player1 = [];
-// let player2 = [];
-
-// let race = {
-//     p1: [],
-//     p2: [],
-//     p1Win: 0,
-//     p2Win: 0,
-//     p2Choices: [],
-//     count: 0,
-//     count_race: 0,
-//     race_info: "",
-//     arg1: "",
-//     arg2: "",
-
-//     selectPlayer1(idRacer) {
-
-//         this.p1.push(allRacers[idRacer]);
-
-// if (this.p1 <2) {
-//     document.getElementById(idRacer).className = "carSelectGray";
-//     document.getElementById(idRacer).onclick = "";
-
-// }
 
